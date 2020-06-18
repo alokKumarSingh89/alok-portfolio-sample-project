@@ -4,15 +4,13 @@ import jwt from "jsonwebtoken";
 import axios from "axios";
 
 import { getCookieFromReq } from "../helpers/utils";
-
-const CLIENT_ID = process.env.CLIENT_ID;
-
+import CONSTANT from "../clientConfig";
 class Auth0 {
   constructor() {
     this.auth0 = new auth0.WebAuth({
-      domain: "vue-learn.auth0.com",
-      clientID: CLIENT_ID,
-      redirectUri: `${process.env.BASE_URL}/callback`,
+      domain: CONSTANT.AUTH_DOMAIN,
+      clientID: CONSTANT.CLIENT_ID,
+      redirectUri: `${CONSTANT.BASE_URL}/callback`,
       responseType: "token id_token",
       scope: "openid profile",
     });
@@ -49,7 +47,7 @@ class Auth0 {
 
     this.auth0.logout({
       returnTo: process.env.BASE_URL,
-      clientID: CLIENT_ID,
+      clientID: CONSTANT.CLIENT_ID,
     });
   }
 
@@ -59,7 +57,7 @@ class Auth0 {
 
   async getJWKS() {
     const res = await axios.get(
-      "https://eincode.eu.auth0.com/.well-known/jwks.json"
+      `https://${CONSTANT.AUTH_DOMAIN}/.well-known/jwks.json`
     );
     const jwks = res.data;
     return jwks;

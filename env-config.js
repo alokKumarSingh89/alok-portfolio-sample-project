@@ -1,9 +1,7 @@
 const prod = process.env.NODE_ENV === "production";
-
+const CONSTANT = require("./clientConfig");
 module.exports = {
-  "process.env.BASE_URL": prod
-    ? "https://filipjerga.herokuapp.com"
-    : "http://localhost:3000",
-  "process.env.NAMESPACE": "https://filipjerga.herokuapp.com",
-  "process.env.CLIENT_ID": "Le4qfcLtgn5Tjmwm6LBQEyqvPZLBElj5",
+  "process.env.BASE_URL": prod ? CONSTANT.BASE_URL : "http://localhost:3000",
+  "process.env.NAMESPACE": CONSTANT.NAMESPACE,
+  "process.env.CLIENT_ID": CONSTANT.CLIENT_ID,
 };
