@@ -23,7 +23,7 @@ const BaseLayout = (props) => {
         />
         <meta
           name="keywords"
-          content="jerga portfolio, jerga developer, jerga freelancig, jerga programming"
+          content="Alok portfolio, alok developer, alok freelancig, alok programming"
         />
         <meta
           property="og:title"

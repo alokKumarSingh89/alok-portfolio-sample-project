@@ -13,7 +13,7 @@ class Cv extends React.Component {
             <Col md={{ size: 8, offset: 2 }}>
               <div className="cv-title">
                 <a
-                  download="jerga_cv.pdf"
+                  download="alok.pdf"
                   className="btn btn-success"
                   href="/static/alok.pdf"
                 >
